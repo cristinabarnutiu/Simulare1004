@@ -38,14 +38,7 @@ public class MainController {
     }
 
 
-    @FXML
-    private void initialize() {
 
-        Platform.runLater(() -> {
-            events.addAll(eventService.getAll());
-            tblEvent.setItems(events);
-        });
-    }
 
 
     public void btnAddEventClick(ActionEvent actionEvent) {
@@ -63,6 +56,12 @@ public class MainController {
         } catch (RuntimeException rex) {
             Common.showValidationError(rex.getMessage());
         }
+    }
+
+    private void run() {
+        events.addAll(eventService.getAll());
+       // Math.max(eventService.getAll());
+        tblEvent.setItems(events);
     }
 }
 
